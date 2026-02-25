@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Presentation | Next Level Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="bg-mesh"></div>
+
+
+
+    <main class="presentation-container" id="presentation">
+        <!-- 1. CAPA (Hero Archetype) -->
+        <section class="slide active fullscreen" id="slide-1">
+            <img src="assets/capa.webp" alt="Cover" class="fullscreen-image">
+        </section>
+
+        <!-- 2. O QUE VAMOS APRENDER (List Archetype) -->
+        <section class="slide" id="slide-2">
+            <div class="layout-center glass-card">
+                <div class="icon-box reveal reveal-1"><i data-lucide="book-open"></i></div>
+                <h2 class="slide-title reveal reveal-2">O que a gente vai <span>ver hoje</span></h2>
+                <ul class="list-premium reveal reveal-3">
+                    <li><i data-lucide="cpu"></i> O que é a IA e como ela funciona (de verdade)</li>
+                    <li><i data-lucide="rocket"></i> O que dá pra fazer com ela no dia a dia</li>
+                    <li><i data-lucide="layers"></i> As principais ferramentas que você já pode usar</li>
+                    <li><i data-lucide="terminal"></i> Como falar com a IA do jeito certo (prompt)</li>
+                    <li><i data-lucide="palette"></i> Prática: criar imagens e prompts do zero</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. O QUE É IA? (Definition Archetype) -->
+        <section class="slide" id="slide-3">
+            <div class="layout-rich" style="grid-template-columns: 1.5fr 1fr;">
+                <div class="glass-card reveal reveal-1">
+                    <div class="icon-box"><i data-lucide="brain-circuit"></i></div>
+                    <h2 class="slide-title">Mas afinal, o que é a <span>IA?</span></h2>
+                    <p class="slide-subtitle">Inteligência Artificial (IA) é a capacidade de máquinas e programas de
+                        computador simularem processos cognitivos humanos, como aprender, raciocinar, tomar decisões e
+                        resolver problemas — de forma autônoma.
+                    </p>
+                </div>
+                <!-- Visual placeholder using CSS or SVG -->
+                <div class="visual-element reveal reveal-2" style="text-align: center;">
+                    <i data-lucide="network"
+                        style="width: 320px; height: 320px; color: var(--accent-cyan); opacity: 0.2; filter: drop-shadow(0 0 40px rgba(var(--accent-cyan-rgb), 0.2));"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. COMO ELA FUNCIONA (Process Archetype) -->
+        <section class="slide" id="slide-4">
+            <div class="layout-rich">
+                <div class="text-content reveal reveal-1">
+                    <h2 class="slide-title">Como ela <span>funciona</span></h2>
+                    <p class="slide-subtitle">A IA opera a partir de um princípio central: aprender com dados. Sistemas
+                        analisam volumes imensos de informação, identificam padrões e melhoram sozinhos — sem precisar
+                        de novas instruções manuais.</p>
+
+                    <div class="tech-chips reveal reveal-2">
+                        <span class="tech-chip">Machine Learning</span>
+                        <span class="tech-chip">Deep Learning</span>
+                        <span class="tech-chip">Processamento de Linguagem Natural</span>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-2">
+                    <div class="data-flow-container">
+                        <div class="data-stream">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="flow-node">
+                            <i data-lucide="database"></i>
+                            <span class="node-label">Dados</span>
+                        </div>
+                        <div class="flow-node">
+                            <i data-lucide="brain-circuit"></i>
+                            <span class="node-label">Padrões</span>
+                        </div>
+                        <div class="flow-node">
+                            <i data-lucide="sparkles"></i>
+                            <span class="node-label">Solução</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. POSSIBILIDADES (Grid Archetype) -->
+        <section class="slide" id="slide-5">
+            <div class="layout-center">
+                <!-- Background Tech Decoration -->
+                <div class="decorative-layer">
+                    <i data-lucide="cpu" class="floating-icon"
+                        style="top: 20%; left: 5%; width: 100px; height: 100px; opacity: 0.1;"></i>
+                    <i data-lucide="network" class="floating-icon"
+                        style="top: 60%; right: 5%; width: 150px; height: 150px; opacity: 0.1;"></i>
+                    <i data-lucide="scan" class="floating-icon"
+                        style="top: 10%; right: 15%; width: 60px; height: 60px; opacity: 0.15;"></i>
+                </div>
+
+                <h2 class="slide-title reveal reveal-1" style="position: relative; z-index: 2;">O que dá pra fazer com
+                    <span>IA?</span></h2>
+                <div class="layout-grid-row" style="margin-top: 2rem; position: relative; z-index: 2;">
+
+                    <!-- Card 1 -->
+                    <div class="glass-card cyan reveal reveal-2">
+                        <div class="card-media-container">
+                            <div class="tech-badge"
+                                style="color: var(--accent-cyan); border-color: rgba(var(--accent-cyan-rgb), 0.3);">
+                                GEN-IMAGE</div>
+                            <div class="ai-scanner"></div>
+                            <img src="assets/illustrations/card-imagem.jpg" class="card-media-bg" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h3>Imagem</h3>
+                            <p>Criação de fotos realistas e ilustrações exclusivas a partir de texto.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-card purple reveal reveal-3">
+                        <div class="card-media-container">
+                            <div class="tech-badge"
+                                style="color: var(--accent-purple); border-color: rgba(var(--accent-purple-rgb), 0.3);">
+                                AI-VIDEO</div>
+                            <div class="ai-scanner"></div>
+                            <video src="assets/videos/perna-longa-video.mp4" class="card-media-bg" autoplay loop muted
+                                playsinline></video>
+                        </div>
+                        <div class="card-content">
+                            <h3>Vídeo</h3>
+                            <p>Geração de clipes cinematográficos e avatares hiper-realistas animados.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-card cyan reveal reveal-4">
+                        <div class="card-media-container">
+                            <div class="tech-badge"
+                                style="color: var(--accent-cyan); border-color: rgba(var(--accent-cyan-rgb), 0.3);">
+                                NLP-TEXT</div>
+                            <div class="ai-scanner"></div>
+                            <img src="assets/illustrations/card-texto.jpg" class="card-media-bg" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h3>Texto</h3>
+                            <p>Redação técnica, roteiros inteligentes, traduções e análises profundas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="glass-card purple reveal reveal-5">
+                        <div class="card-media-container">
+                            <div class="tech-badge"
+                                style="color: var(--accent-purple); border-color: rgba(var(--accent-purple-rgb), 0.3);">
+                                AUTO-CODE</div>
+                            <div class="ai-scanner"></div>
+                            <img src="assets/illustrations/card-codigo.jpg" class="card-media-bg" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h3>Código</h3>
+                            <p>Programação avançada, correção de bugs e criação de scripts de automação.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PLATAFORMAS IAs (Rich Showcase Archetype) -->
+        <section class="slide" id="slide-6">
+            <!-- Background Decoration -->
+            <div class="decorative-layer">
+                <i data-lucide="cpu" class="floating-icon"
+                    style="top: 15%; left: 10%; width: 120px; height: 120px;"></i>
+                <i data-lucide="zap" class="floating-icon" style="top: 60%; left: 5%; width: 80px; height: 80px;"></i>
+                <i data-lucide="sparkles" class="floating-icon"
+                    style="top: 10%; right: 15%; width: 100px; height: 100px;"></i>
+                <i data-lucide="brain-circuit" class="floating-icon"
+                    style="top: 70%; right: 10%; width: 140px; height: 140px;"></i>
+            </div>
+
+            <div class="layout-rich">
+                <div class="text-content reveal reveal-1">
+                    <h2 class="slide-title">As ferramentas <br>úteis para o <span>dia a dia</span></h2>
+                    <p class="slide-subtitle">Selecionamos o que há de mais avançado no mercado para transformar sua
+                        produtividade.</p>
+
+                    <div class="platform-highlight reveal reveal-2" style="margin-top: 3rem;">
+                        <h4>💡 Dica de Expert</h4>
+                        <p>Não tente usar todas ao mesmo tempo. Comece pela que resolve sua maior dor hoje.</p>
+                    </div>
+                </div>
+
+                <div class="tools-showcase reveal reveal-2">
+                    <!-- Card 1: Texto -->
+                    <div class="tool-card-premium">
+                        <div class="group-header">
+                            <div class="icon-box" style="margin: 0; width: 48px; height: 48px; min-width: 48px;"><i
+                                    data-lucide="message-square"></i></div>
+                            <h4>Conversa & Texto</h4>
+                        </div>
+                        <p class="group-desc">Criação de e-mails, análise de contratos e brainstormings estratégicos.
+                        </p>
+                        <div class="logo-grid-small">
+                            <div class="logo-box-minimal" title="ChatGPT"><img
+                                    src="https://api.iconify.design/simple-icons/openai.svg?color=white" alt=""></div>
+                            <div class="logo-box-minimal" title="Claude"><img
+                                    src="https://api.iconify.design/simple-icons/anthropic.svg?color=white" alt="">
+                            </div>
+                            <div class="logo-box-minimal" title="Grok"><img
+                                    src="https://api.iconify.design/simple-icons/x.svg?color=white" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Multimídia -->
+                    <div class="tool-card-premium">
+                        <div class="group-header">
+                            <div class="icon-box"
+                                style="margin: 0; width: 48px; height: 48px; min-width: 48px; background: rgba(var(--accent-purple-rgb), 0.1); color: var(--accent-purple);">
+                                <i data-lucide="image"></i>
+                            </div>
+                            <h4>Imagem & Vídeo</h4>
+                        </div>
+                        <p class="group-desc">Geração de posts para redes sociais e apresentações visuais de impacto.
+                        </p>
+                        <div class="logo-grid-small">
+                            <div class="logo-box-minimal" title="Gemini"><img
+                                    src="https://api.iconify.design/simple-icons/googlegemini.svg?color=white" alt="">
+                            </div>
+                            <div class="logo-box-minimal" title="Midjourney"><img
+                                    src="https://api.iconify.design/lucide/image.svg?color=white" alt=""></div>
+                            <div class="logo-box-minimal" title="Runway"><i data-lucide="video"
+                                    style="width: 20px; color: white;"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Assistentes -->
+                    <div class="tool-card-premium" style="grid-column: span 2;">
+                        <div class="group-header">
+                            <div class="icon-box"
+                                style="margin: 0; width: 48px; height: 48px; min-width: 48px; background: rgba(255,255,255,0.05); color: var(--text-dim);">
+                                <i data-lucide="plus-circle"></i>
+                            </div>
+                            <h4>Assistentes Essenciais</h4>
+                        </div>
+                        <div style="display: flex; gap: 2rem; align-items: center;">
+                            <p class="group-desc" style="flex: 1;">Pesquisa em tempo real, design rápido e integração
+                                com o Windows/Office.</p>
+                            <div class="logo-grid-small" style="flex: 1.5; grid-template-columns: repeat(3, 1fr);">
+                                <div class="logo-box-minimal" title="Perplexity"><img
+                                        src="https://api.iconify.design/simple-icons/perplexity.svg?color=white" alt="">
+                                </div>
+                                <div class="logo-box-minimal" title="Canva"><img
+                                        src="https://api.iconify.design/simple-icons/canva.svg?color=white" alt="">
+                                </div>
+                                <div class="logo-box-minimal" title="Copilot"><img
+                                        src="https://api.iconify.design/simple-icons/microsoft.svg?color=white" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CHATGPT (Deep Dive Archetype) -->
+        <section class="slide" id="slide-7">
+            <div class="layout-rich">
+                <div class="glass-card reveal reveal-1">
+                    <h2 class="slide-title">ChatGPT <span>OpenAI</span></h2>
+                    <div class="platform-highlight">
+                        <h4>🏆 Melhor para: Contexto e raciocínio</h4>
+                        <p>Ótimo quando você precisa explicar uma situação longa e quer uma resposta inteligente. Lembra
+                            o que você disse antes e mantém o fio da meada.</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-2" style="text-align: center;">
+                    <img src="assets/illustrations/chatgpt-logo.png" alt="ChatGPT Logo"
+                        style="width: 280px; filter: drop-shadow(0 0 30px rgba(var(--accent-cyan-rgb), 0.3));">
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. GEMINI (Multimodal Archetype) -->
+        <section class="slide" id="slide-8">
+            <div class="layout-rich">
+                <div class="reveal reveal-1" style="text-align: center;">
+                    <img src="assets/illustrations/Gemini-logo.svg" alt="Gemini Logo"
+                        style="width: 320px; filter: drop-shadow(0 0 30px rgba(var(--accent-purple-rgb), 0.3));">
+                </div>
+                <div class="glass-card reveal reveal-2">
+                    <h2 class="slide-title">Gemini <span>Google</span></h2>
+                    <div class="platform-highlight" style="border-color: var(--accent-purple);">
+                        <h4 style="color: var(--accent-purple)">🏆 Melhor para: Imagens e vídeos</h4>
+                        <p>Cria imagens incríveis direto pelo chat. Integra com o Google Drive e Gmail, e ainda gera
+                            vídeos curtos com o Veo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. GROK (Social/Video Archetype) -->
+        <section class="slide" id="slide-9">
+            <div class="layout-rich">
+                <div class="glass-card reveal reveal-1">
+                    <h2 class="slide-title">Grok <span>xAI</span></h2>
+                    <div class="platform-highlight">
+                        <h4>🏆 Melhor para: Vídeo gratuito</h4>
+                        <p>Gera vídeos de alta qualidade sem precisar pagar nada. Acessa informações em tempo real e é
+                            perfeito para quem está começando.</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-2" style="text-align: center;">
+                    <img src="assets/illustrations/Grok-icon.svg" alt="Grok Logo"
+                        style="width: 250px; filter: drop-shadow(0 0 30px rgba(var(--accent-cyan-rgb), 0.3));">
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CLAUDE (Text/Copy Archetype) -->
+        <section class="slide" id="slide-10">
+            <div class="layout-rich">
+                <div class="reveal reveal-1" style="text-align: center;">
+                    <img src="assets/illustrations/Claude-Logo-PNG-SVG-Vector.svg" alt="Claude Logo"
+                        style="width: 280px; filter: drop-shadow(0 0 30px rgba(var(--accent-purple-rgb), 0.3));">
+                </div>
+                <div class="glass-card reveal reveal-2">
+                    <h2 class="slide-title">Claude <span>Anthropic</span></h2>
+                    <div class="platform-highlight" style="border-color: var(--accent-purple);">
+                        <h4 style="color: var(--accent-purple)">🏆 Melhor para: Textos e copy</h4>
+                        <p>Escreve como gente. Ideal para posts, roteiros e e-mails que precisam soar naturais — não
+                            robóticos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Dicas & Prompt (Educational Archetype) -->
+        <section class="slide" id="slide-11">
+            <div class="layout-center glass-card">
+                <h2 class="slide-title">Como falar com a <span>IA do jeito certo</span></h2>
+                <div class="grid-2 reveal reveal-1" style="text-align: left;">
+                    <div class="platform-highlight">
+                        <h4>O que é um Prompt?</h4>
+                        <p>É simplesmente o que você escreve para a IA. Como um pedido para um colega — quanto mais
+                            claro, melhor a resposta.</p>
+                    </div>
+                    <div>
+                        <ul class="list-premium">
+                            <li><i data-lucide="check-circle"></i> Seja específico: diga exatamente o que quer</li>
+                            <li><i data-lucide="check-circle"></i> Dê contexto: explique a situação</li>
+                            <li><i data-lucide="check-circle"></i> Defina o tom: formal, divertido, direto...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. PRÁTICA 1 (Practice Archetype) -->
+        <section class="slide practice" id="slide-12">
+            <div class="layout-split">
+                <div class="glass-card reveal reveal-1">
+                    <h2 class="slide-title">Vamos criar uma <span>foto profissional</span></h2>
+                    <p class="slide-subtitle">Juntos, vamos usar o Gemini para gerar uma imagem
+                        profissional do zero — sem câmera, sem estúdio e sem designer.</p>
+                </div>
+                <div class="reveal reveal-2" style="text-align: center;">
+                    <div class="image-container-premium">
+                        <!-- Background Stack -->
+                        <img src="assets/illustrations/girl-img-profissional.jpeg" class="image-stack-bg left" alt="">
+                        <img src="assets/illustrations/girl-img-profissional-2.jpeg" class="image-stack-bg right"
+                            alt="">
+
+                        <!-- Main Portrait -->
+                        <img src="assets/illustrations/professional-portrait.png" alt="Foto Profissional"
+                            style="width: 420px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.6); position: relative; z-index: 2;">
+
+                        <!-- Floating QR -->
+                        <div class="qr-floating-card reveal reveal-3" onclick="this.classList.toggle('pop')">
+                            <img src="assets/illustrations/qr-code-site.png" alt="QR Code">
+                            <span>Acessar SITE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. PRÁTICA 2 (Reverse Engineering Archetype) -->
+        <section class="slide practice" id="slide-13">
+            <div class="layout-split">
+                <div class="reveal reveal-1" style="text-align: center;">
+                    <i data-lucide="search-code" style="width: 200px; height: 200px; color: var(--accent-cyan);"></i>
+                </div>
+                <div class="glass-card reveal reveal-2">
+                    <h2 class="slide-title">Descobrindo o <span>segredo de uma imagem</span></h2>
+                    <p class="slide-subtitle">Você tem uma imagem que adorou e quer replicar o estilo? A IA te diz
+                        exatamente como aquela imagem foi criada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. PRÁTICA 3 (Action Archetype) -->
+        <section class="slide practice" id="slide-14">
+            <div class="layout-center glass-card reveal reveal-1">
+                <h2 class="slide-title">Crie seu <span>primeiro prompt</span></h2>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h3>A fórmula simples</h3>
+                    <p style="font-size: 1.4rem; letter-spacing: 1px;">Quem você é + O que precisa + Como quer + Regras
+                    </p>
+                </div>
+                <p style="margin-top: 2rem; color: var(--text-dim);">Agora é a sua vez — sem medo, sem mistério. Bora
+                    criar! 🚀</p>
+            </div>
+        </section>
+    </main>
+
+    <nav class="controls">
+        <button id="prevBtn" class="control-btn" disabled><i data-lucide="chevron-up"></i></button>
+        <button id="nextBtn" class="control-btn"><i data-lucide="chevron-down"></i></button>
+    </nav>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

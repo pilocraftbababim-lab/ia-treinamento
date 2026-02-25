@@ -1,0 +1,957 @@
+:root {
+    /* Premium Palette */
+    --bg-deep: #05080F;
+    --accent-cyan: #06B6D4;
+    --accent-cyan-rgb: 6, 182, 212;
+    --accent-purple: #8B5CF6;
+    --accent-purple-rgb: 139, 92, 246;
+    --text-main: #F8FAFC;
+    --text-dim: #94A3B8;
+
+    /* Glassmorphism V2 */
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: 16px;
+    --glass-blur-deep: 40px;
+
+    /* Animation Easing */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Projector Optimization */
+    --safe-area: 8%;
+    --font-scale: 1.4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    font-size: calc(1rem * var(--font-scale));
+}
+
+/* Background Animated Gradient Layer */
+.bg-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #131B2B 0%, #05080F 100%);
+}
+
+.bg-mesh::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    animation: mesh-move 20s infinite linear;
+}
+
+@keyframes mesh-move {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* Presentation Logic */
+.presentation-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--safe-area);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, transform 1s var(--ease-out);
+    transform: translateY(60px) scale(0.98);
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.slide.prev {
+    transform: translateY(-60px) scale(0.98);
+}
+
+/* Layout Archetypes */
+
+/* 1. Fullscreen Hero */
+.slide.fullscreen {
+    padding: 0;
+    overflow: hidden;
+}
+
+.fullscreen-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Practice Slide Enhancements */
+.image-container-premium {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.qr-floating-card {
+    position: absolute;
+    bottom: -35px;
+    right: -35px;
+    width: 200px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.qr-floating-card.pop {
+    transform: scale(2.2) translate(-25%, -25%) !important;
+    z-index: 100 !important;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 40px 100px rgba(10, 10, 10, 0.9);
+    animation: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.qr-floating-card img {
+    width: 100%;
+    border-radius: 12px;
+    background: white;
+    padding: 8px;
+}
+
+.qr-floating-card span {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.image-stack-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(4px) brightness(0.6);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    object-fit: cover;
+    height: 500px;
+}
+
+.image-stack-bg.left {
+    transform: translate(-65%, -50%) rotate(-12deg);
+}
+
+.image-stack-bg.right {
+    transform: translate(-35%, -50%) rotate(12deg);
+}
+
+.image-container-premium:hover .image-stack-bg.left {
+    transform: translate(-80%, -55%) rotate(-20deg);
+}
+
+.image-container-premium:hover .image-stack-bg.right {
+    transform: translate(-20%, -55%) rotate(20deg);
+}
+
+/* 2. Split Layout */
+.layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+/* 3. Concentric Card */
+.layout-center {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* 4. Grid Flow */
+.layout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.layout-grid-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.layout-grid-row .glass-card {
+    flex: none;
+    /* Prevent flex-grow from distorting the aspect ratio */
+    height: 65vh;
+    /* Make them tall to fit split content comfortably */
+    max-height: 650px;
+    /* Cap explicit height to prevent them from getting too huge on 4k screens */
+    aspect-ratio: 9 / 16;
+    /* Re-apply requested vertical proportion */
+    padding: 0;
+    /* Remove padding to let media touch edges */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    background: rgba(10, 15, 25, 0.6);
+    /* Solid dark base instead of glass for the whole card */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-media-container {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    /* Takes up remaining space above text */
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-media-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-card:hover .card-media-bg {
+    transform: scale(1.05);
+    /* Zoom effect just on the image now */
+}
+
+.card-content {
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(5, 8, 15, 0.95);
+    /* Extremely dark, almost solid */
+    z-index: 2;
+    position: relative;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 160px;
+    /* Ensure consistent text area height */
+}
+
+.layout-grid-row .glass-card h3 {
+    font-size: 1.8rem;
+    /* Slightly smaller to fit the narrow 9:16 width */
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.layout-grid-row .glass-card p {
+    font-size: 1rem !important;
+    /* Scale down slightly for the narrow width */
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.layout-grid-row .glass-card.cyan:hover {
+    border-color: rgba(var(--accent-cyan-rgb), 0.5);
+    box-shadow: 0 0 40px rgba(var(--accent-cyan-rgb), 0.3), inset 0 0 20px rgba(var(--accent-cyan-rgb), 0.1);
+}
+
+.layout-grid-row .glass-card.purple:hover {
+    border-color: rgba(var(--accent-purple-rgb), 0.5);
+    box-shadow: 0 0 40px rgba(var(--accent-purple-rgb), 0.3), inset 0 0 20px rgba(var(--accent-purple-rgb), 0.1);
+}
+
+/* Tech Enhancements for Slide 5 */
+.tech-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    z-index: 10;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tech-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 8px currentColor;
+    animation: pulse 2s infinite;
+}
+
+.ai-scanner {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4), transparent);
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(0);
+    pointer-events: none;
+}
+
+.glass-card.cyan .ai-scanner {
+    background: linear-gradient(to bottom, transparent, rgba(var(--accent-cyan-rgb), 0.6), transparent);
+}
+
+.glass-card.purple .ai-scanner {
+    background: linear-gradient(to bottom, transparent, rgba(var(--accent-purple-rgb), 0.6), transparent);
+}
+
+.glass-card:hover .ai-scanner {
+    animation: scan 2.5s ease-in-out infinite;
+    opacity: 1;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(400px);
+        opacity: 0;
+    }
+}
+
+/* Removed old .card-full-bg since layout is now split */
+
+/* Card Styling */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    padding: 3.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+
+/* Decorative Background Elements */
+.decorative-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-icon {
+    position: absolute;
+    color: var(--accent-cyan);
+    opacity: 0.03;
+    animation: float-slow 15s infinite ease-in-out;
+}
+
+@keyframes float-slow {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+.layout-rich {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    width: 100%;
+    max-width: 1300px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+/* Typography Overhaul */
+h1,
+h2,
+h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+.slide-title {
+    font-size: calc(3.5rem * var(--font-scale));
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* Premium Tools Layout */
+.tools-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.tool-card-premium {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.4s var(--ease-out);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tool-card-premium:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-cyan);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tool-card-premium .group-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tool-card-premium .group-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.tool-card-premium .group-desc {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+.logo-grid-small {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.logo-box-minimal {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.logo-box-minimal:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.logo-box-minimal img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+/* Data Flow Visualization */
+.data-flow-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--glass-border);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.flow-node i {
+    width: 48px;
+    height: 48px;
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 10px rgba(var(--accent-cyan-rgb), 0.3));
+}
+
+.node-label {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+.data-stream {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    z-index: 1;
+}
+
+.dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-cyan);
+    offset-path: path('M -50 0 L 1200 0');
+    animation: move-dot 3s infinite linear;
+}
+
+@keyframes move-dot {
+    0% {
+        offset-distance: 0%;
+    }
+
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+.tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.tech-chip {
+    padding: 0.75rem 1.5rem;
+    background: rgba(var(--accent-cyan-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-cyan-rgb), 0.2);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    transition: all 0.3s ease;
+}
+
+.tech-chip:hover {
+    background: var(--accent-cyan);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(var(--accent-cyan-rgb), 0.4);
+}
+
+.dot:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.slide-title span {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-subtitle {
+    font-size: calc(1.5rem * var(--font-scale));
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+/* UI Elements */
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background: rgba(var(--accent-cyan-rgb), 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--accent-cyan);
+}
+
+.practice .icon-box {
+    background: rgba(var(--accent-purple-rgb), 0.1);
+    color: var(--accent-purple);
+}
+
+.practice .glass-card {
+    border-color: rgba(var(--accent-purple-rgb), 0.2);
+}
+
+.list-premium {
+    list-style: none;
+    text-align: left;
+}
+
+.list-premium li {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.list-premium li:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--glass-border);
+    transform: translateX(10px);
+}
+
+.list-premium i {
+    color: var(--accent-cyan);
+}
+
+/* Content Blocks */
+.platform-highlight {
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(var(--accent-cyan-rgb), 0.05);
+    border-left: 4px solid var(--accent-cyan);
+    text-align: left;
+}
+
+.platform-highlight h4 {
+    margin-bottom: 0.5rem;
+    color: var(--accent-cyan);
+}
+
+/* Animations - Staggered Reveals */
+.slide .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out);
+}
+
+.slide.active .reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide.active .reveal-1 {
+    transition-delay: 0.2s;
+}
+
+.slide.active .reveal-2 {
+    transition-delay: 0.4s;
+}
+
+.slide.active .reveal-3 {
+    transition-delay: 0.6s;
+}
+
+.slide.active .reveal-4 {
+    transition-delay: 0.8s;
+}
+
+/* Navigation buttons */
+.controls {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.control-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
+
+.control-btn:hover:not(:disabled) {
+    border-color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.control-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Responsive Design & Media Queries
+   ========================================================================== */
+
+/* Tablets & Small Laptops */
+@media screen and (max-width: 1024px) {
+
+    /* Global Spacing */
+    .slide {
+        padding: 4rem 3rem;
+    }
+
+    .layout-center,
+    .layout-split,
+    .layout-grid {
+        max-width: 100%;
+    }
+
+    /* Typography Scaling */
+    .slide-subtitle {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    /* Layouts */
+    .layout-split {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .layout-split .content-side {
+        padding-right: 0;
+    }
+
+    .layout-grid {
+        gap: 1.5rem;
+    }
+
+    /* Slide 5 - Possibilities Grid */
+    .layout-grid-row {
+        flex-wrap: wrap;
+        /* Allow cards to wrap to a second line instead of squishing */
+        gap: 1.5rem;
+    }
+
+    .layout-grid-row .glass-card {
+        flex: 1 1 calc(50% - 1.5rem);
+        /* 2 columns on tablet */
+        max-width: none;
+        height: auto;
+        min-height: 400px;
+        /* Switch to min-height instead of fixed height for wrapping */
+        aspect-ratio: auto;
+        /* Remove strict aspect ratio to allow natural flow */
+    }
+}
+
+/* Mobile Phones */
+@media screen and (max-width: 768px) {
+
+    /* Global Spacing */
+    .slide {
+        padding: 3rem 1.5rem;
+    }
+
+    /* Typography Scaling */
+    .slide-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem !important;
+    }
+
+    .text-gradient {
+        line-height: 1.2;
+    }
+
+    /* Layouts */
+    .layout-grid {
+        grid-template-columns: 1fr;
+        /* Single column */
+        gap: 1rem;
+    }
+
+    /* Slide 5 - Possibilities Grid */
+    .layout-grid-row {
+        flex-direction: column;
+        /* Stack vertically */
+    }
+
+    .layout-grid-row .glass-card {
+        flex: 1 1 100%;
+        /* Full width */
+        min-height: 450px;
+        aspect-ratio: auto;
+    }
+
+    /* UI Adjustments */
+    .glass-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .tech-stack {
+        justify-content: center;
+    }
+
+    .controls {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .control-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+
+    .decorative-layer .floating-icon {
+        display: none;
+        /* Hide decorative floating icons on mobile to save performance and space */
+    }
+}
