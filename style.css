@@ -472,10 +472,11 @@ body {
 
 .layout-rich {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 5rem;
     width: 100%;
-    max-width: 1300px;
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
     align-items: center;
     position: relative;
     z-index: 1;
@@ -1007,8 +1008,15 @@ h3 {
 
     .layout-center,
     .layout-split,
+    .layout-rich,
     .layout-grid {
         max-width: 100%;
+    }
+
+    .layout-rich {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
     }
 
     /* Typography Scaling */
@@ -1021,8 +1029,10 @@ h3 {
     }
 
     /* Layouts */
-    .layout-split {
+    .layout-split,
+    .layout-rich {
         flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
         align-items: center;
         text-align: center;
