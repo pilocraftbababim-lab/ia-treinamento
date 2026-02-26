@@ -502,6 +502,101 @@ body {
     transform: rotate(90deg);
 }
 
+/* ==========================================================================
+   Mosaic Background (Slide 20 Final)
+   ========================================================================== */
+.mosaic-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.mosaic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(10, 15, 25, 0.4) 0%, rgba(10, 15, 25, 0.95) 80%);
+    z-index: 2;
+}
+
+.mosaic-item {
+    position: absolute;
+    border-radius: 16px;
+    object-fit: cover;
+    opacity: 0.3;
+    filter: grayscale(50%) blur(2px);
+    transition: all 0.8s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.slide.active .mosaic-item {
+    opacity: 0.5;
+    filter: grayscale(20%) blur(0px);
+}
+
+/* Scattered Positions */
+.m-1 {
+    width: 300px;
+    height: 400px;
+    top: -5%;
+    left: 5%;
+    transform: rotate(-10deg);
+}
+
+.m-2 {
+    width: 400px;
+    height: 300px;
+    top: 10%;
+    right: -5%;
+    transform: rotate(5deg);
+}
+
+.m-3 {
+    width: 250px;
+    height: 350px;
+    bottom: 10%;
+    left: 15%;
+    transform: rotate(15deg);
+}
+
+.m-4 {
+    width: 350px;
+    height: 500px;
+    bottom: -15%;
+    right: 10%;
+    transform: rotate(-8deg);
+}
+
+.m-5 {
+    width: 400px;
+    height: 250px;
+    top: 40%;
+    left: -10%;
+    transform: rotate(12deg);
+}
+
+.m-6 {
+    width: 200px;
+    height: 200px;
+    top: 35%;
+    right: 15%;
+    transform: rotate(-20deg);
+}
+
+/* Hover Intetraction */
+.mosaic-item:hover {
+    opacity: 1;
+    filter: grayscale(0%) blur(0px);
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+}
+
 .timer-container {
     background: rgba(10, 15, 25, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.05);
