@@ -157,7 +157,7 @@
                                 style="color: var(--accent-cyan); border-color: rgba(var(--accent-cyan-rgb), 0.3);">
                                 NLP-TEXT</div>
                             <div class="ai-scanner"></div>
-                            <img src="assets/illustrations/card-texto.jpg" class="card-media-bg" alt="">
+                            <img src="assets/illustrations/card-texto.png" class="card-media-bg" alt="">
                         </div>
                         <div class="card-content">
                             <h3>Texto</h3>
@@ -435,21 +435,74 @@
                         <img src="assets/illustrations/professional-portrait.png" alt="Foto Profissional"
                             style="width: 420px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.6); position: relative; z-index: 2;">
 
-                        <!-- Floating QR -->
-                        <div class="qr-floating-card reveal reveal-3" onclick="this.classList.toggle('pop')">
-                            <img src="assets/illustrations/qr-code-site.png" alt="QR Code">
-                            <span>Acessar SITE</span>
+                        <!-- Floating QR Removed as Requested -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. PRÁTICA DE CRIAÇÃO (Timer Slide) -->
+        <section class="slide practice" id="slide-14">
+            <!-- Flashing red background container -->
+            <div class="timer-bg-flash"></div>
+
+            <div class="layout-center glass-card reveal reveal-1"
+                style="max-width: 900px; padding: 4rem; position: relative; z-index: 2;">
+                <h2 class="slide-title">Vamos à <span>Prática de Criação</span></h2>
+
+                <div class="timer-container reveal reveal-2">
+                    <div class="timer-display" id="creation-timer">05:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn primary" onclick="startTimer()"><i data-lucide="play"></i>
+                            Iniciar</button>
+                        <button class="timer-btn secondary" onclick="pauseTimer()"><i data-lucide="pause"></i>
+                            Pausar</button>
+                        <button class="timer-btn ghost" onclick="resetTimer()"><i data-lucide="rotate-ccw"></i>
+                            Zerar</button>
+                    </div>
+                </div>
+
+                <div class="tool-info-grid reveal reveal-3"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; text-align: left;">
+                    <!-- QR Code / URL Side -->
+                    <div class="info-card"
+                        style="display: flex; align-items: center; gap: 1.5rem; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
+                        <img src="assets/illustrations/qr-code-site.png" class="qr-trigger" onclick="openQRModal()"
+                            alt="QR Code" title="Clique para ampliar">
+                        <div>
+                            <h4 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">Acesse os
+                                Prompts</h4>
+                            <p
+                                style="color: var(--accent-cyan); font-family: monospace; font-size: 1.1rem; word-break: break-all;">
+                                www.bananaprompts.xyz/explore?tags=Business</p>
+                        </div>
+                    </div>
+
+                    <!-- Gemini Notice Side -->
+                    <div class="info-card"
+                        style="display: flex; align-items: center; gap: 1.5rem; background: rgba(var(--accent-purple-rgb), 0.1); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(var(--accent-purple-rgb), 0.2);">
+                        <div
+                            style="background: rgba(var(--accent-purple-rgb), 0.2); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://api.iconify.design/simple-icons/googlegemini.svg?color=a882ff"
+                                alt="Gemini" style="width: 40px;">
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">Criação de
+                                Conteúdo</h4>
+                            <p style="color: var(--text-dim); font-size: 0.95rem;">Utilizaremos a IA do Google Gemini
+                                nesta dinâmica de exercícios.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 14. PRÁTICA 2 (Reverse Engineering Archetype) -->
-        <section class="slide practice" id="slide-14">
+        <!-- 15. PRÁTICA 2 (Reverse Engineering Archetype) -->
+        <section class="slide practice" id="slide-15">
             <div class="layout-split">
                 <div class="reveal reveal-1" style="text-align: center;">
-                    <i data-lucide="search-code" style="width: 200px; height: 200px; color: var(--accent-cyan);"></i>
+                    <video src="assets/videos/tatiana-video.mp4" autoplay loop muted playsinline
+                        style="width: 100%; max-width: 380px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 25px 50px rgba(0,0,0,0.6);"></video>
                 </div>
                 <div class="glass-card reveal reveal-2">
                     <h2 class="slide-title">Descobrindo o <span>segredo de uma imagem</span></h2>
@@ -459,8 +512,50 @@
             </div>
         </section>
 
-        <!-- 15. PRÁTICA 3 (Action Archetype) -->
-        <section class="slide practice" id="slide-15">
+        <!-- 16. PRÁTICA 3 (Timer Slide 2 - No QR) -->
+        <section class="slide practice" id="slide-16">
+            <!-- Flashing red background container -->
+            <div class="timer-bg-flash" id="timer-bg-flash-2"></div>
+
+            <div class="layout-center glass-card reveal reveal-1"
+                style="max-width: 900px; padding: 4rem; position: relative; z-index: 2;">
+                <h2 class="slide-title">Vamos à <span>Prática de Engenharia</span></h2>
+
+                <div class="timer-container reveal reveal-2">
+                    <div class="timer-display" id="creation-timer-2">05:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn primary" onclick="startTimer(2)"><i data-lucide="play"></i>
+                            Iniciar</button>
+                        <button class="timer-btn secondary" onclick="pauseTimer(2)"><i data-lucide="pause"></i>
+                            Pausar</button>
+                        <button class="timer-btn ghost" onclick="resetTimer(2)"><i data-lucide="rotate-ccw"></i>
+                            Zerar</button>
+                    </div>
+                </div>
+
+                <div class="tool-info-grid reveal reveal-3"
+                    style="display: flex; justify-content: center; margin-top: 3rem;">
+                    <!-- Gemini Notice Side (Centered) -->
+                    <div class="info-card"
+                        style="display: flex; align-items: center; gap: 1.5rem; background: rgba(var(--accent-purple-rgb), 0.1); padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(var(--accent-purple-rgb), 0.2); max-width: 500px;">
+                        <div
+                            style="background: rgba(var(--accent-purple-rgb), 0.2); padding: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://api.iconify.design/simple-icons/googlegemini.svg?color=a882ff"
+                                alt="Gemini" style="width: 40px;">
+                        </div>
+                        <div style="text-align: left;">
+                            <h4 style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.5rem;">Criação de
+                                Conteúdo</h4>
+                            <p style="color: var(--text-dim); font-size: 0.95rem;">Utilizaremos a IA do Google Gemini
+                                nesta dinâmica de exercícios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. PRÁTICA 4 (Action Archetype) -->
+        <section class="slide practice" id="slide-17">
             <div class="layout-center glass-card reveal reveal-1">
                 <h2 class="slide-title">Crie seu <span>primeiro prompt</span></h2>
                 <div class="highlight-box" style="margin-top: 2rem;">
@@ -472,6 +567,18 @@
                     criar! 🚀</p>
             </div>
         </section>
+
+        <!-- ==============================================
+             QR Code Fullscreen Modal Overlay
+             ============================================== -->
+        <div id="qrModal" class="qr-modal-overlay" onclick="closeQRModal()">
+            <div class="qr-modal-content" onclick="event.stopPropagation()">
+                <button class="qr-modal-close" onclick="closeQRModal()"><i data-lucide="x"></i></button>
+                <img src="assets/illustrations/qr-code-site.png" alt="QR Code Expandido">
+                <h3>Acesse os Prompts</h3>
+                <p>www.bananaprompts.xyz/explore?tags=Business</p>
+            </div>
+        </div>
     </main>
 
     <!-- Navigation commands are handled by keyboard/scroll -->
