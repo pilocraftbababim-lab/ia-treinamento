@@ -114,7 +114,8 @@
                 </div>
 
                 <h2 class="slide-title reveal reveal-1" style="position: relative; z-index: 2;">O que dá pra fazer com
-                    <span>IA?</span></h2>
+                    <span>IA?</span>
+                </h2>
                 <div class="layout-grid-row" style="margin-top: 2rem; position: relative; z-index: 2;">
 
                     <!-- Card 1 -->
@@ -124,7 +125,8 @@
                                 style="color: var(--accent-cyan); border-color: rgba(var(--accent-cyan-rgb), 0.3);">
                                 GEN-IMAGE</div>
                             <div class="ai-scanner"></div>
-                            <img src="assets/illustrations/card-imagem.jpg" class="card-media-bg" alt="">
+                            <img src="assets/illustrations/elvis-ia.png" class="card-media-bg"
+                                style="object-fit: contain; padding: 20px;" alt="">
                         </div>
                         <div class="card-content">
                             <h3>Imagem</h3>
@@ -170,7 +172,34 @@
                                 style="color: var(--accent-purple); border-color: rgba(var(--accent-purple-rgb), 0.3);">
                                 AUTO-CODE</div>
                             <div class="ai-scanner"></div>
-                            <img src="assets/illustrations/card-codigo.jpg" class="card-media-bg" alt="">
+
+                            <!-- Looping Code Simulation -->
+                            <div class="card-media-bg code-simulation">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="title">Ademicon.js</span>
+                                </div>
+                                <div class="code-body">
+                                    <div class="code-line"><span class="c-keyword">async function</span> <span
+                                            class="c-func">generateSystem</span>() {</div>
+                                    <div class="code-line"> <span class="c-keyword">const</span> ai = <span
+                                            class="c-keyword">new</span> <span class="c-class">AdemiconAI</span>();
+                                    </div>
+                                    <div class="code-line"> <span class="c-keyword">await</span> ai.<span
+                                            class="c-func">train</span>(companyData);</div>
+                                    <div class="code-line"> <span class="c-keyword">return</span> ai.<span
+                                            class="c-func">deploy</span>({</div>
+                                    <div class="code-line"> <span class="c-prop">mode</span>: <span
+                                            class="c-string">'autonomous'</span>,</div>
+                                    <div class="code-line"> <span class="c-prop">efficiency</span>: <span
+                                            class="c-number">100</span></div>
+                                    <div class="code-line"> });</div>
+                                    <div class="code-line">}<span class="code-cursor"></span></div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="card-content">
                             <h3>Código</h3>

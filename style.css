@@ -242,12 +242,12 @@ body {
 }
 
 .layout-grid-row .glass-card {
-    flex: none;
-    /* Prevent flex-grow from distorting the aspect ratio */
-    height: 65vh;
-    /* Make them tall to fit split content comfortably */
-    max-height: 650px;
-    /* Cap explicit height to prevent them from getting too huge on 4k screens */
+    flex: 1 1 0;
+    min-width: 0;
+    height: auto;
+    /* Allow height to be driven by aspect-ratio, prevents overflow on narrow screens */
+    max-height: 70vh;
+    /* Cap explicit height for extreme vertical screens */
     aspect-ratio: 9 / 16;
     /* Re-apply requested vertical proportion */
     padding: 0;
@@ -483,7 +483,7 @@ h3 {
 }
 
 .slide-title {
-    font-size: calc(3.5rem * var(--font-scale));
+    font-size: clamp(2.5rem, 5vw, calc(3.5rem * var(--font-scale)));
     line-height: 1.1;
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
@@ -670,7 +670,7 @@ h3 {
 }
 
 .slide-subtitle {
-    font-size: calc(1.5rem * var(--font-scale));
+    font-size: clamp(1.2rem, 2.5vw, calc(1.5rem * var(--font-scale)));
     color: var(--text-dim);
     line-height: 1.6;
 }
@@ -805,6 +805,184 @@ h3 {
 }
 
 /* ==========================================================================
+   Code Simulation Animation (Slide 5)
+   ========================================================================== */
+.code-simulation {
+    background: #0d1117;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: #c9d1d9;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-header {
+    background: #161b22;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #30363d;
+}
+
+.code-header .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.code-header .red {
+    background: #ff5f56;
+}
+
+.code-header .yellow {
+    background: #ffbd2e;
+}
+
+.code-header .green {
+    background: #27c93f;
+}
+
+.code-header .title {
+    margin-left: auto;
+    margin-right: auto;
+    color: #8b949e;
+    font-size: 0.75rem;
+}
+
+.code-body {
+    padding: 15px;
+    overflow: hidden;
+}
+
+.code-line {
+    line-height: 1.6;
+    white-space: pre;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: typeLine 0.5s forwards;
+}
+
+/* Stagger the line typing animations in a loop */
+.code-body .code-line:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.code-body .code-line:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.code-body .code-line:nth-child(3) {
+    animation-delay: 1.9s;
+}
+
+.code-body .code-line:nth-child(4) {
+    animation-delay: 2.6s;
+}
+
+.code-body .code-line:nth-child(5) {
+    animation-delay: 3.3s;
+}
+
+.code-body .code-line:nth-child(6) {
+    animation-delay: 4.0s;
+}
+
+.code-body .code-line:nth-child(7) {
+    animation-delay: 4.7s;
+}
+
+.code-body .code-line:nth-child(8) {
+    animation-delay: 5.4s;
+}
+
+/* The container resets the animation infinitely */
+.code-simulation {
+    animation: resetCode 8s infinite;
+}
+
+@keyframes typeLine {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes resetCode {
+
+    0%,
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+    /* Briefly hide everything to reset the typeLine delays */
+}
+
+.code-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.2em;
+    background: #c9d1d9;
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    opacity: 0;
+}
+
+/* Make the cursor appear only at the end of the sequence */
+.code-body .code-line:last-child .code-cursor {
+    animation: showCursor 8s infinite, blink 1s step-end infinite;
+}
+
+@keyframes showCursor {
+
+    0%,
+    70% {
+        opacity: 0;
+    }
+
+    71%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        background: transparent;
+    }
+}
+
+/* Syntax Highlighting Colors */
+.c-keyword {
+    color: #ff7b72;
+}
+
+.c-func {
+    color: #d2a8ff;
+}
+
+.c-class {
+    color: #79c0ff;
+}
+
+.c-prop {
+    color: #79c0ff;
+}
+
+.c-string {
+    color: #a5d6ff;
+}
+
+.c-number {
+    color: #79c0ff;
+}
+
+/* ==========================================================================
    Responsive Design & Media Queries
    ========================================================================== */
 
@@ -823,20 +1001,12 @@ h3 {
     }
 
     /* Typography Scaling */
+    .slide-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+
     .slide-subtitle {
-        font-size: 1.5rem;
-    }
-
-    h1 {
-        font-size: 4rem;
-    }
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    h3 {
-        font-size: 2rem;
+        font-size: clamp(1.1rem, 2vw, 1.5rem);
     }
 
     /* Layouts */
@@ -883,21 +1053,14 @@ h3 {
     }
 
     /* Typography Scaling */
+    .slide-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+
     .slide-subtitle {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
         margin-bottom: 1rem;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2.2rem;
-    }
-
-    h3 {
-        font-size: 1.6rem;
     }
 
     p {
