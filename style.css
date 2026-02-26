@@ -20,6 +20,10 @@
     /* Projector Optimization */
     --safe-area: 8%;
     --font-scale: 1.4;
+
+    /* Global Layout Metrics */
+    --container-width: 1400px;
+    --container-padding: 0;
 }
 
 * {
@@ -209,15 +213,17 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
     align-items: center;
     margin: 0 auto;
 }
 
 /* 3. Concentric Card */
 .layout-center {
-    max-width: 1000px;
     width: 100%;
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
     text-align: center;
     margin: 0 auto;
 }
@@ -228,7 +234,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 3rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
     margin: 0 auto;
 }
 
@@ -237,7 +244,8 @@ body {
     justify-content: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--container-width);
+    padding: 0 var(--container-padding);
     margin: 0 auto;
 }
 
@@ -988,6 +996,9 @@ h3 {
 
 /* Tablets & Small Laptops */
 @media screen and (max-width: 1024px) {
+    :root {
+        --container-padding: 3rem;
+    }
 
     /* Global Spacing */
     .slide {
@@ -1046,6 +1057,9 @@ h3 {
 
 /* Mobile Phones */
 @media screen and (max-width: 768px) {
+    :root {
+        --container-padding: 1.5rem;
+    }
 
     /* Global Spacing */
     .slide {
